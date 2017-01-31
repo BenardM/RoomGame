@@ -1,8 +1,8 @@
+import static org.junit.Assert.*;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by nicolas on 31/01/17.
@@ -11,7 +11,7 @@ public class EnigmeTest {
     private Enigme enigme;
     @Before
     public void setUp() throws Exception {
-        this.enigme = new Enigme("Enigme 1");
+        enigme = new Enigme("Enigme 1");
     }
 
     @After
