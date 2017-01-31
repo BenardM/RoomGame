@@ -1,14 +1,15 @@
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by nicolas on 31/01/17.
  */
 public class EnigmeTest {
     private Enigme enigme;
+
     @Before
     public void setUp() throws Exception {
         enigme = new Enigme("Enigme 1");
@@ -20,18 +21,19 @@ public class EnigmeTest {
     }
 
     @Test
-    public void enigmeIsValidate() {
+    public void initialized() throws Exception {
         enigme.setValidate(true);
         assertEquals(true, enigme.getValidate());
     }
 
     @Test
-    public void enigmeIsNotValidate() {
+    public void getValidate() throws Exception {
         assertEquals(false, enigme.getValidate());
     }
 
     @Test
-    public void isInitialized() {
+    public void setValidate() throws Exception {
         assertEquals(true, enigme.initialized());
     }
+
 }

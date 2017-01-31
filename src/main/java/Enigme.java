@@ -1,7 +1,7 @@
 /**
  * Created by nicolas on 31/01/17.
  */
-public class Enigme {
+public class Enigme extends Game {
 
     private String name;
     private boolean validate;
