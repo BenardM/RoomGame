@@ -53,4 +53,25 @@ public class EnigmeCalculTest {
         assertEquals(enigmeCalcul.answerIsCorrect(answer), true);
 
     }
+
+    @Test
+    public void scenario() throws Exception {
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme de calcul 1");
+        System.out.println("Combien font "  + enigmeCalcul.getTexteCalcul() + " ?");
+        System.out.println("Veuillez saisir un nombre :");
+        // Remplacement de la saisie utilisateur
+        String str = String.valueOf(enigmeCalcul.getResultatCalcul());
+        // Vérifie si la saisie utilisateur est correcte au résultat
+        enigmeCalcul.answerIsCorrect(str);
+
+        assertEquals(enigmeCalcul.answerIsCorrect(str), true);
+        assertEquals(enigmeCalcul.getValidate(), true);
+
+        if(enigmeCalcul.getValidate()) {
+            System.out.println("Vous avez gagné : " + str);
+        }
+        else {
+            System.out.println("Vous avez perdu. La bonne réponse était " + enigmeCalcul.getResultatCalcul());
+        }
+    }
 }

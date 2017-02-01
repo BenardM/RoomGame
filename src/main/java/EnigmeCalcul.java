@@ -5,8 +5,8 @@ import java.util.Random;
  */
 public class EnigmeCalcul extends Enigme {
 
-    private int resultatCalcul;
-    private String texteCalcul;
+    private int resultatCalcul; // Résultat du calcul
+    private String texteCalcul; // Calcul sous forme de String
 
     public EnigmeCalcul (String name) {
         super(name);
@@ -16,6 +16,10 @@ public class EnigmeCalcul extends Enigme {
         this.resultatCalcul = this.genererResultatCalcul(this.texteCalcul);
     }
 
+    /**
+     * @return texteCalcul
+     * Retourne un calcul avec 2 nombres et un opérateur sous forme de texte
+     */
     public String genererTexteCalcul() {
         char tabOperateurs[] = {'+', '-', '*', '/'};
         String texteCalcul;
@@ -26,10 +30,18 @@ public class EnigmeCalcul extends Enigme {
         return texteCalcul;
     }
 
+    /**
+     * @param texteCalcul
+     * @return resultatCalcul
+     * Retourne le résultat en entier d'un calcul avec opérateur d'un String
+     */
     public int genererResultatCalcul(String texteCalcul) {
         char operateurExtrait = 0;
         int positionOperateurExtrait = 0;
 
+        /* Parcours de la String du texteCalcul
+           afin de chercher la position de l'opérateur
+        */
         for (int i = 0; i < texteCalcul.length(); i++) {
             if (isPresent(texteCalcul.charAt(i))) {
                 operateurExtrait = texteCalcul.charAt(i);
@@ -37,6 +49,7 @@ public class EnigmeCalcul extends Enigme {
             }
         }
 
+        // Valorisation de nombre1 et nombre2 en fonction de leur position par rapport à l'opérateur
         int nombre1 = Integer.parseInt(texteCalcul.substring(0, positionOperateurExtrait));
         int nombre2 = Integer.parseInt(texteCalcul.substring(positionOperateurExtrait+1, texteCalcul.length()));
 
@@ -60,11 +73,18 @@ public class EnigmeCalcul extends Enigme {
         return resultatCalcul;
     }
 
+    /**
+     * @param answer
+     * @return isCorrect
+     * Retourne true si la réponse est correcte au résultat
+     * Passe la propriété privée validate de l'énigme à true
+     */
     public boolean answerIsCorrect(String answer) {
         boolean isCorrect = false;
 
         if (answer.equals(String.valueOf(this.getResultatCalcul()))) {
             isCorrect = true;
+            this.setValidate(true);
         }
 
         return isCorrect;
@@ -85,6 +105,11 @@ public class EnigmeCalcul extends Enigme {
         this.texteCalcul = texteCalcul;
     }
 
+    /**
+     * @param caractere
+     * @return present
+     * Vérifie si un caractère est présent dans un tableau d'opérateurs
+     */
     public boolean isPresent(char caractere) {
         char tabOperateurs[] = {'+', '-', '*', '/'};
         boolean present = false;
