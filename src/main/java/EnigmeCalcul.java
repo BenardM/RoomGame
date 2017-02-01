@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -6,47 +5,71 @@ import java.util.Random;
  */
 public class EnigmeCalcul extends Enigme {
 
-    private int tabResultats[];
-    private String tabCalculs[];
+    private int resultatCalcul;
+    private String tabTexteCalcul[];
 
     public EnigmeCalcul (String name) {
         super(name);
-        genererCalculs();
+
+        // Valorisation de tabTexteCalcul[]
+        this.tabTexteCalcul = genererTexteCalcul();
+        this.resultatCalcul = genererResultatCalcul(this.tabTexteCalcul);
     }
 
-    public void genererCalculs() {
+    public String[] genererTexteCalcul() {
+        String tabTexteCalcul[] = new String[3];
+        Random random = new Random();
         char tabOperateurs[] = {'+', '-', '*', '/'};
 
-        Random rdm = new Random();
-
-        for (int i = 0; i < 2; i++) {
-            this.tabResultats[i] = rdm.nextInt(100) + tabOperateurs[rdm.nextInt(4)] + rdm.nextInt(100);
-            this.tabCalculs[i] = Integer.toString(rdm.nextInt(100)) + tabOperateurs[rdm.nextInt(4)] + Integer.toString(rdm.nextInt(100));
+        for(int i = 0; i < 3; i++) {
+            if ((i % 2) == 0) {
+                tabTexteCalcul[i] = Integer.toString(random.nextInt(100) + 1);
+            } else {
+                tabTexteCalcul[i] = Integer.toString(tabOperateurs[random.nextInt(4)]);
+            }
         }
+
+        return tabTexteCalcul;
     }
 
-    public int[] getTabResultats() {
-        return tabResultats;
+    public int genererResultatCalcul(String[] tabTexteCalcul) {
+
+        String operateurExtrait = tabTexteCalcul[1];
+        int nombre1 = Integer.parseInt(tabTexteCalcul[0]);
+        int nombre2 = Integer.parseInt(tabTexteCalcul[2]);
+
+        switch(operateurExtrait) {
+            case "*":
+                resultatCalcul = nombre1 * nombre2;
+                break;
+            case "/":
+                resultatCalcul = nombre1 / nombre2;
+                break;
+            case "+":
+                resultatCalcul = nombre1 + nombre2;
+                break;
+            case "-":
+                resultatCalcul = nombre1 - nombre2;
+                break;
+        }
+
+        return resultatCalcul;
     }
 
-    public void setTabResultats(int[] tabResultats) {
-        this.tabResultats = tabResultats;
+    public int getResultatCalcul() {
+        return resultatCalcul;
     }
 
-    public String[] getTabCalculs() {
-        return tabCalculs;
+    public void setResultatCalcul(int resultatCalcul) {
+        this.resultatCalcul = resultatCalcul;
     }
 
-    public void setTabCalculs(String[] tabCalculs) {
-        this.tabCalculs = tabCalculs;
+    public String[] getTabTexteCalcul() {
+        return tabTexteCalcul;
     }
 
-    @Override
-    public String toString() {
-        return "Calcul{" +
-                "tabResultats=" + Arrays.toString(tabResultats) +
-                ", tabCalculs=" + Arrays.toString(tabCalculs) +
-                '}';
+    public void setTabTexteCalcul(String[] tabTexteCalcul) {
+        this.tabTexteCalcul = tabTexteCalcul;
     }
 }
 

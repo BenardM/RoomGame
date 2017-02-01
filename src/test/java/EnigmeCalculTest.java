@@ -1,17 +1,16 @@
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by nicolas on 31/01/17.
  */
 public class EnigmeCalculTest {
-    private EnigmeCalcul enigmeCalcul;
     @Before
     public void setUp() throws Exception {
-        enigmeCalcul = new EnigmeCalcul("Enigme 1");
+
     }
 
     @After
@@ -20,25 +19,28 @@ public class EnigmeCalculTest {
     }
 
     @Test
-    public void enigmeIsValidate() {
+    public void constructorWorks() {
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
+    }
+
+
+    @Test
+    public void checkValidate() {
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
         enigmeCalcul.setValidate(true);
         assertEquals(true, enigmeCalcul.getValidate());
     }
 
     @Test
-    public void enigmeIsNotValidate() {
-        assertEquals(false, enigmeCalcul.getValidate());
+    public void textIsGenerated() throws Exception {
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
+        assertNotEquals("", enigmeCalcul.getTabTexteCalcul());
+        assertNotNull(enigmeCalcul.getTabTexteCalcul());
     }
 
     @Test
-    public void isInitialized() {
-        assertEquals(true, enigmeCalcul.initialized());
-    }
-
-    @Test
-    public void isGenerated() throws Exception {
-        enigmeCalcul.genererCalculs();
-        assertNotNull(enigmeCalcul.getTabCalculs());
-        assertNotNull(enigmeCalcul.getTabResultats());
+    public void resultatIsCorrect() throws Exception {
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
+        assertEquals(enigmeCalcul.getResultatCalcul(), enigmeCalcul.genererResultatCalcul(enigmeCalcul.getTabTexteCalcul()));
     }
 }

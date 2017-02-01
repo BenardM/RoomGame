@@ -9,10 +9,10 @@ public class Enigme extends Game {
 
     public Enigme(String name) {
         this.name = name;
-        this.validate = false;
     }
 
     public static boolean initialized() {
+        /* todo */
         return true;
     }
 
