@@ -11,9 +11,9 @@ public class EnigmeCalcul extends Enigme {
     public EnigmeCalcul (String name) {
         super(name);
 
-        // Valorisation de tabTexteCalcul[]
-        this.tabTexteCalcul = genererTexteCalcul();
-        this.resultatCalcul = genererResultatCalcul(this.tabTexteCalcul);
+        // Valorisation de tabTexteCalcul[] et resultatTexte
+        this.tabTexteCalcul = this.genererTexteCalcul();
+        this.resultatCalcul = this.genererResultatCalcul(this.tabTexteCalcul);
     }
 
     public String[] genererTexteCalcul() {
