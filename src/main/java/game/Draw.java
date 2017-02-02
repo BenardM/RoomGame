@@ -21,7 +21,7 @@ public class Draw extends PApplet {
 
         @Override
         public void settings() {
-            size(largeurFen, hauteurFen); //taille de la fenêtre
+            fullScreen();
         }
         @Override
         public void setup() {
