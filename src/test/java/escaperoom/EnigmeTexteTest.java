@@ -1,5 +1,6 @@
 package escaperoom;
 
+import game.EnigmeTexte;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -23,7 +24,7 @@ public class EnigmeTexteTest {
 
         EnigmeTexte enigmeTexte = new EnigmeTexte();
 
-        assertEquals(enigmeTexte.findReponse(), enigmeTexte.getReponse());
+        assertEquals("kcdq", enigmeTexte.getReponse());
     }
 
     @Test

@@ -21,20 +21,20 @@ public class EnigmeCalculTest {
 
     @Test
     public void constructorWorks() {
-        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul();
     }
 
 
     @Test
     public void checkValidate() {
-        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul();
         enigmeCalcul.setValidate(true);
         assertEquals(enigmeCalcul.getIsValidate(), true);
     }
 
     @Test
     public void textIsGenerated() throws Exception {
-        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul();
         enigmeCalcul.setTexteCalcul("63+37");
         assertEquals(enigmeCalcul.getTexteCalcul().isEmpty(), false);
         assertNotNull(enigmeCalcul.getTexteCalcul());
@@ -42,14 +42,14 @@ public class EnigmeCalculTest {
 
     @Test
     public void resultatIsCorrect() throws Exception {
-        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul();
         assertEquals(enigmeCalcul.getResultatCalcul(), enigmeCalcul.genererResultatCalcul(enigmeCalcul.getTexteCalcul()));
         assertNotEquals(enigmeCalcul.getResultatCalcul(), 0);
     }
 
     @Test
     public void answerIsCorrect() throws Exception {
-        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul();
         String answer = String.valueOf(enigmeCalcul.getResultatCalcul());
         assertEquals(enigmeCalcul.answerIsCorrect(answer), true);
 
@@ -57,7 +57,7 @@ public class EnigmeCalculTest {
 
     @Test
     public void scenario() throws Exception {
-        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme de calcul 1");
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul();
         System.out.println("Combien font "  + enigmeCalcul.getTexteCalcul() + " ?");
         System.out.println("Veuillez saisir un nombre :");
         // Remplacement de la saisie utilisateur

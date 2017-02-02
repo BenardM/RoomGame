@@ -5,13 +5,13 @@ import java.util.Random;
 /**
  * Created by nicolas on 31/01/17.
  */
-public class EnigmeCalcul {
+public class EnigmeCalcul implements Enigme {
 
     private boolean isValidate;
     private int resultatCalcul; // Résultat du calcul
     private String texteCalcul; // Calcul sous forme de String
 
-    public EnigmeCalcul (String name) {
+    public EnigmeCalcul () {
 
         this.setValidate(false);
         this.texteCalcul = this.genererTexteCalcul();
