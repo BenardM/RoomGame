@@ -8,22 +8,21 @@ public class Wire {
 
     private String color;
     private int type;
+    private boolean isCut;
 
     public Wire() {
-        this.color = this.generateColor();
+        this.generateColor();
         this.setType(1);
+        this.setCut(false);
     }
 
-    private String generateColor() {
+    private void generateColor() {
         Random random = new Random();
         String tabColor[] = {"blanc", "noir", "jaune", "orange", "bleu", "vert", "rouge"};
-
-        return tabColor[random.nextInt(tabColor.length)];
+        setColor(tabColor[random.nextInt(tabColor.length)]);
     }
 
-    public String getColor() {
-        return color;
-    }
+
 
     public boolean isPresent(String color) {
         String tabColor[] = {"blanc", "noir", "jaune", "orange", "bleu", "vert", "rouge"};
@@ -38,6 +37,18 @@ public class Wire {
         return present;
     }
 
+    public boolean isCut() {
+        return isCut;
+    }
+
+    public void setCut(boolean cut) {
+        isCut = cut;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
     public void setColor(String color) {
         this.color = color;
     }
@@ -48,9 +59,9 @@ public class Wire {
 
     public void setType(int type) {
         if (type != 1 || type != 2 || type != 3) {
-            this.type = type;
-        } else {
             this.type = 1;
+        } else {
+            this.type = type;
         }
     }
 }

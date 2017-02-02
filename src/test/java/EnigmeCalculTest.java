@@ -29,7 +29,7 @@ public class EnigmeCalculTest {
     public void checkValidate() {
         EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
         enigmeCalcul.setValidate(true);
-        assertEquals(true, enigmeCalcul.getValidate());
+        assertEquals(enigmeCalcul.getIsValidate(), true);
     }
 
     @Test
@@ -66,9 +66,9 @@ public class EnigmeCalculTest {
         enigmeCalcul.answerIsCorrect(str);
 
         assertEquals(enigmeCalcul.answerIsCorrect(str), true);
-        assertEquals(enigmeCalcul.getValidate(), true);
+        assertEquals(enigmeCalcul.getIsValidate(), true);
 
-        if(enigmeCalcul.getValidate()) {
+        if(enigmeCalcul.getIsValidate()) {
             System.out.println("Vous avez gagné : " + str);
         }
         else {
