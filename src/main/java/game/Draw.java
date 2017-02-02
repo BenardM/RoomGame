@@ -1,6 +1,7 @@
 package game;
 
 import processing.core.PApplet;
+import processing.core.PFont;
 import processing.core.PImage;
 
 /**
@@ -18,7 +19,7 @@ public class Draw extends PApplet {
         int screen=1;
         String path;
         Controller C1= new Controller();
-
+        Timer chrono;
         @Override
         public void settings() {
             fullScreen();
@@ -29,9 +30,19 @@ public class Draw extends PApplet {
             matrice = loadImage(path);
 
 
-            image(matrice, 0, 0);
             frameRate(fps); // Affichage par défaut 20 FPS
             C1.dessiner(this);
+            chrono = new Timer();
+            fill(0);
+        }
+
+        public void draw(){
+            background(255,0);
+            image(matrice, 0, 0);
+            fill(255, 0, 0);
+            PFont foncrono = createFont("Arial", 30);
+            textFont(foncrono);
+            text(chrono.minuteTimer()+":"+chrono.secondsTimer(), 175, 180);
         }
 
         public String gameImageController() {
