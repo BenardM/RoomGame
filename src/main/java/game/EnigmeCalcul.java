@@ -1,17 +1,19 @@
+package game;
+
 import java.util.Random;
 
 /**
  * Created by nicolas on 31/01/17.
  */
-public class EnigmeCalcul extends Enigme {
+public class EnigmeCalcul {
 
+    private boolean isValidate;
     private int resultatCalcul; // Résultat du calcul
     private String texteCalcul; // Calcul sous forme de String
 
     public EnigmeCalcul (String name) {
-        super(name);
 
-        // Valorisation de tabTexteCalcul[] et resultatTexte
+        this.setValidate(false);
         this.texteCalcul = this.genererTexteCalcul();
         this.resultatCalcul = this.genererResultatCalcul(this.texteCalcul);
     }
@@ -121,5 +123,13 @@ public class EnigmeCalcul extends Enigme {
         }
 
         return present;
+    }
+
+    public boolean getIsValidate() {
+        return isValidate;
+    }
+
+    public void setValidate(boolean validate) {
+        isValidate = validate;
     }
 }
