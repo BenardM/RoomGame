@@ -15,6 +15,8 @@ public class Draw extends PApplet {
         int largeurFen=1000;
         int hauteurFen=700;
         int fps=20;
+        int screen=1;
+        String path;
         Controller C1= new Controller();
 
         @Override
@@ -23,10 +25,36 @@ public class Draw extends PApplet {
         }
         @Override
         public void setup() {
-            matrice = loadImage("./img/bomba.jpg");
+            path = gameImageController();
+            matrice = loadImage(path);
+
+
             image(matrice, 0, 0);
             frameRate(fps); // Affichage par défaut 20 FPS
             C1.dessiner(this);
         }
+
+        public String gameImageController() {
+            switch(screen){
+                case 1: path = "./img/bomba.jpg"; break;
+                case 2: path = "./img/bum.jpg";break;
+                case 3: path = "./img/victory.jpg";break;
+            }
+
+
+        /*    if (chronometre.endTimer()){
+                screen = 2;
+            }*/
+
+            return path;
+        }
+
+    public void winner() {
+        String message=String.format("%s is the chosen one");
+        fill(255,255,255);
+        textSize(32);
+        textAlign(CENTER);
+        text(message,550,690/2);
+    }
     }
 
