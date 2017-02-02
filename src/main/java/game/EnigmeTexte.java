@@ -1,4 +1,4 @@
-package escaperoom;
+package game;
 
 /**
  * Created by Victor on 01/02/2017.
