@@ -13,9 +13,13 @@ public class Bomb extends PApplet {
     int screen=1;
 
     Temps chronometre;
-
+    public static void main(String args[]) {
+        String[] a = {"MAIN"};
+        PApplet.runSketch( a, new Bomb());
+    }
     public void settings(){
-        size(1024, 768);
+        //size(1680, 1050);
+        fullScreen();
     }
     public void setup(){
 
