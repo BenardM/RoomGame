@@ -1,9 +1,12 @@
+package game;
+
+import java.util.Arrays;
 import java.util.Random;
 
 /**
  * Created by nicolas on 31/01/17.
  */
-public class EnigmeCalcul extends Enigme {
+public class EnigmeCalcul {
 
     private int resultatCalcul; // Résultat du calcul
     private String texteCalcul; // Calcul sous forme de String
