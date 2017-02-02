@@ -1,6 +1,5 @@
 package game;
 
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -8,13 +7,13 @@ import java.util.Random;
  */
 public class EnigmeCalcul {
 
+    private boolean isValidate;
     private int resultatCalcul; // Résultat du calcul
     private String texteCalcul; // Calcul sous forme de String
 
     public EnigmeCalcul (String name) {
-        super(name);
 
-        // Valorisation de tabTexteCalcul[] et resultatTexte
+        this.setValidate(false);
         this.texteCalcul = this.genererTexteCalcul();
         this.resultatCalcul = this.genererResultatCalcul(this.texteCalcul);
     }
@@ -124,5 +123,13 @@ public class EnigmeCalcul {
         }
 
         return present;
+    }
+
+    public boolean getIsValidate() {
+        return isValidate;
+    }
+
+    public void setValidate(boolean validate) {
+        isValidate = validate;
     }
 }

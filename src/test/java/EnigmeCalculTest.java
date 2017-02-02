@@ -1,12 +1,14 @@
+/*
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
+*
  * Created by nicolas on 31/01/17.
- */
+
+
 public class EnigmeCalculTest {
     @Before
     public void setUp() throws Exception {
@@ -75,3 +77,4 @@ public class EnigmeCalculTest {
         }
     }
 }
+*/
