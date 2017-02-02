@@ -5,7 +5,6 @@ import java.util.Random;
  */
 
 public class Wire {
-
     private String color;
     private int type;
     private boolean isCut;

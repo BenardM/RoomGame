@@ -52,8 +52,17 @@ public class EnigmeCalculTest {
         EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
         String answer = String.valueOf(enigmeCalcul.getResultatCalcul());
         assertEquals(enigmeCalcul.answerIsCorrect(answer), true);
-
     }
+
+    @Test
+    public void answerIsWrong() throws Exception {
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
+
+        // +1 pour le getResultatCalcul afin d'avoir une mauvaise réponse
+        String answer = String.valueOf(enigmeCalcul.getResultatCalcul()+1);
+        assertEquals(enigmeCalcul.answerIsCorrect(answer), false);
+    }
+
 
     @Test
     public void scenario() throws Exception {
