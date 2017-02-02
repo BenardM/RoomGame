@@ -34,13 +34,44 @@ public class EnigmeCalculTest {
     @Test
     public void textIsGenerated() throws Exception {
         EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
-        assertNotEquals("", enigmeCalcul.getTabTexteCalcul());
-        assertNotNull(enigmeCalcul.getTabTexteCalcul());
+        enigmeCalcul.setTexteCalcul("63+37");
+        assertEquals(enigmeCalcul.getTexteCalcul().isEmpty(), false);
+        assertNotNull(enigmeCalcul.getTexteCalcul());
     }
 
     @Test
     public void resultatIsCorrect() throws Exception {
         EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
-        assertEquals(enigmeCalcul.getResultatCalcul(), enigmeCalcul.genererResultatCalcul(enigmeCalcul.getTabTexteCalcul()));
+        assertEquals(enigmeCalcul.getResultatCalcul(), enigmeCalcul.genererResultatCalcul(enigmeCalcul.getTexteCalcul()));
+        assertNotEquals(enigmeCalcul.getResultatCalcul(), 0);
+    }
+
+    @Test
+    public void answerIsCorrect() throws Exception {
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
+        String answer = String.valueOf(enigmeCalcul.getResultatCalcul());
+        assertEquals(enigmeCalcul.answerIsCorrect(answer), true);
+
+    }
+
+    @Test
+    public void scenario() throws Exception {
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme de calcul 1");
+        System.out.println("Combien font "  + enigmeCalcul.getTexteCalcul() + " ?");
+        System.out.println("Veuillez saisir un nombre :");
+        // Remplacement de la saisie utilisateur
+        String str = String.valueOf(enigmeCalcul.getResultatCalcul());
+        // Vérifie si la saisie utilisateur est correcte au résultat
+        enigmeCalcul.answerIsCorrect(str);
+
+        assertEquals(enigmeCalcul.answerIsCorrect(str), true);
+        assertEquals(enigmeCalcul.getValidate(), true);
+
+        if(enigmeCalcul.getValidate()) {
+            System.out.println("Vous avez gagné : " + str);
+        }
+        else {
+            System.out.println("Vous avez perdu. La bonne réponse était " + enigmeCalcul.getResultatCalcul());
+        }
     }
 }

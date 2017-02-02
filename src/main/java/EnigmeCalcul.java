@@ -5,57 +5,90 @@ import java.util.Random;
  */
 public class EnigmeCalcul extends Enigme {
 
-    private int resultatCalcul;
-    private String tabTexteCalcul[];
+    private int resultatCalcul; // Résultat du calcul
+    private String texteCalcul; // Calcul sous forme de String
 
     public EnigmeCalcul (String name) {
         super(name);
 
-        // Valorisation de tabTexteCalcul[]
-        this.tabTexteCalcul = genererTexteCalcul();
-        this.resultatCalcul = genererResultatCalcul(this.tabTexteCalcul);
+        // Valorisation de tabTexteCalcul[] et resultatTexte
+        this.texteCalcul = this.genererTexteCalcul();
+        this.resultatCalcul = this.genererResultatCalcul(this.texteCalcul);
     }
 
-    public String[] genererTexteCalcul() {
-        String tabTexteCalcul[] = new String[3];
-        Random random = new Random();
+    /**
+     * @return texteCalcul
+     * Retourne un calcul avec 2 nombres et un opérateur sous forme de texte
+     */
+    public String genererTexteCalcul() {
         char tabOperateurs[] = {'+', '-', '*', '/'};
+        String texteCalcul;
+        Random random = new Random();
 
-        for(int i = 0; i < 3; i++) {
-            if ((i % 2) == 0) {
-                tabTexteCalcul[i] = Integer.toString(random.nextInt(100) + 1);
-            } else {
-                tabTexteCalcul[i] = Integer.toString(tabOperateurs[random.nextInt(4)]);
+        texteCalcul = Integer.toString(random.nextInt(100) + 1) + String.valueOf(tabOperateurs[random.nextInt(4)]) + Integer.toString(random.nextInt(100) + 1);
+
+        return texteCalcul;
+    }
+
+    /**
+     * @param texteCalcul
+     * @return resultatCalcul
+     * Retourne le résultat en entier d'un calcul avec opérateur d'un String
+     */
+    public int genererResultatCalcul(String texteCalcul) {
+        char operateurExtrait = 0;
+        int positionOperateurExtrait = 0;
+
+        /* Parcours de la String du texteCalcul
+           afin de chercher la position de l'opérateur
+        */
+        for (int i = 0; i < texteCalcul.length(); i++) {
+            if (isPresent(texteCalcul.charAt(i))) {
+                operateurExtrait = texteCalcul.charAt(i);
+                positionOperateurExtrait = i;
             }
         }
 
-        return tabTexteCalcul;
-    }
-
-    public int genererResultatCalcul(String[] tabTexteCalcul) {
-
-        String operateurExtrait = tabTexteCalcul[1];
-        int nombre1 = Integer.parseInt(tabTexteCalcul[0]);
-        int nombre2 = Integer.parseInt(tabTexteCalcul[2]);
+        // Valorisation de nombre1 et nombre2 en fonction de leur position par rapport à l'opérateur
+        int nombre1 = Integer.parseInt(texteCalcul.substring(0, positionOperateurExtrait));
+        int nombre2 = Integer.parseInt(texteCalcul.substring(positionOperateurExtrait+1, texteCalcul.length()));
 
         switch(operateurExtrait) {
-            case "*":
+            case '*':
                 resultatCalcul = nombre1 * nombre2;
                 break;
-            case "/":
+            case '/':
                 resultatCalcul = nombre1 / nombre2;
                 break;
-            case "+":
+            case '+':
                 resultatCalcul = nombre1 + nombre2;
                 break;
-            case "-":
+            case '-':
                 resultatCalcul = nombre1 - nombre2;
                 break;
+            default:
+                resultatCalcul = 0;
         }
 
         return resultatCalcul;
     }
 
+    /**
+     * @param answer
+     * @return isCorrect
+     * Retourne true si la réponse est correcte au résultat
+     * Passe la propriété privée validate de l'énigme à true
+     */
+    public boolean answerIsCorrect(String answer) {
+        boolean isCorrect = false;
+
+        if (answer.equals(String.valueOf(this.getResultatCalcul()))) {
+            isCorrect = true;
+            this.setValidate(true);
+        }
+
+        return isCorrect;
+    }
     public int getResultatCalcul() {
         return resultatCalcul;
     }
@@ -64,13 +97,29 @@ public class EnigmeCalcul extends Enigme {
         this.resultatCalcul = resultatCalcul;
     }
 
-    public String[] getTabTexteCalcul() {
-        return tabTexteCalcul;
+    public String getTexteCalcul() {
+        return texteCalcul;
     }
 
-    public void setTabTexteCalcul(String[] tabTexteCalcul) {
-        this.tabTexteCalcul = tabTexteCalcul;
+    public void setTexteCalcul(String texteCalcul) {
+        this.texteCalcul = texteCalcul;
+    }
+
+    /**
+     * @param caractere
+     * @return present
+     * Vérifie si un caractère est présent dans un tableau d'opérateurs
+     */
+    public boolean isPresent(char caractere) {
+        char tabOperateurs[] = {'+', '-', '*', '/'};
+        boolean present = false;
+
+        for (int i = 0; i < tabOperateurs.length; i++) {
+            if (tabOperateurs[i] == caractere) {
+                present = true;
+            }
+        }
+
+        return present;
     }
 }
-
-
