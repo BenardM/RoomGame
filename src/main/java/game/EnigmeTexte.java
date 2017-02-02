@@ -11,8 +11,8 @@ public class EnigmeTexte {
 
     public EnigmeTexte() {
 
-        this.texte = "le temps\note toujours\nle gout.";
-        this.reponse = getReponse();
+        this.texte = "koala faché\ncache toujours\nderrière l'arbre\nquelque chose.";
+        this.reponse = findReponse();
     }
 
     public String getTexte() {
@@ -21,11 +21,15 @@ public class EnigmeTexte {
     }
 
     public String findReponse() {
-        
-        reponse = texte.split("\n")[0].substring(0, 1) + texte.split("\n")[1].substring(0, 1) + texte.split("\n")[2].substring(0, 1);
 
+        this.reponse = "";
+
+        for (int i = 0; i < texte.split("\n").length; i++) {
+
+            this.reponse += texte.split("\n")[i].substring(0, 1);
+
+        }
         return reponse;
-        
     }
 
     public String getReponse() {
