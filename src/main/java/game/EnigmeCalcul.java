@@ -12,7 +12,7 @@ public class EnigmeCalcul {
     private String texteCalcul; // Calcul sous forme de String
 
     public EnigmeCalcul (String name) {
-        super(name);
+        //super(name);
 
         // Valorisation de tabTexteCalcul[] et resultatTexte
         this.texteCalcul = this.genererTexteCalcul();
@@ -82,16 +82,16 @@ public class EnigmeCalcul {
      * Retourne true si la réponse est correcte au résultat
      * Passe la propriété privée validate de l'énigme à true
      */
-    public boolean answerIsCorrect(String answer) {
-        boolean isCorrect = false;
-
-        if (answer.equals(String.valueOf(this.getResultatCalcul()))) {
-            isCorrect = true;
-            this.setValidate(true);
-        }
-
-        return isCorrect;
-    }
+//    public boolean answerIsCorrect(String answer) {
+//        boolean isCorrect = false;
+//
+//        if (answer.equals(String.valueOf(this.getResultatCalcul()))) {
+//            isCorrect = true;
+//            this.setValidate(true);
+//        }
+//
+//        return isCorrect;
+//    }
     public int getResultatCalcul() {
         return resultatCalcul;
     }
@@ -124,5 +124,17 @@ public class EnigmeCalcul {
         }
 
         return present;
+    }
+
+    public void setValidate(boolean b) {
+
+    }
+
+    public boolean getValidate() {
+        return false;
+    }
+
+    public boolean answerIsCorrect(String str) {
+        return false;
     }
 }
