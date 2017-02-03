@@ -7,10 +7,10 @@ import java.util.Random;
  */
 
 public class Wire {
+
     float xPos;
     float yPos;
     int c;
-
     private String color;
     private int type;
     private boolean isCut;

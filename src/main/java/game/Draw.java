@@ -30,10 +30,11 @@ public class Draw extends PApplet {
             matrice = loadImage(path);
 
 
+            image(matrice, 0, 0);
             frameRate(fps); // Affichage par défaut 20 FPS
-            C1.dessiner(this);
             chrono = new Timer();
-            fill(0);
+            C1.dessiner(this);
+
         }
 
         public void draw(){
@@ -43,6 +44,14 @@ public class Draw extends PApplet {
             PFont foncrono = createFont("Arial", 30);
             textFont(foncrono);
             text(chrono.minuteTimer()+":"+chrono.secondsTimer(), 175, 180);
+            Bouton b1 = new Bouton(175, 70, color(255,0,0), 15, 40, 1, 1, "", this);
+            Bouton b2 = new Bouton(190, 70, color(0,0,0), 15, 40, 1, 2, "", this);
+            Bouton b3 = new Bouton(205, 70, color(0,0,255), 15, 40, 1, 1, "", this);
+            Bouton b4 = new Bouton(220, 70, color(0,255,0), 15, 40, 1, 3, "", this);
+            b1.wire(this);
+            b2.wire(this);
+            b3.wire(this);
+            b4.wire(this);
         }
 
         public String gameImageController() {
@@ -67,5 +76,6 @@ public class Draw extends PApplet {
         textAlign(CENTER);
         text(message,550,690/2);
     }
-    }
+
+}
 
