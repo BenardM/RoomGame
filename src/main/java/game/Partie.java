@@ -1,4 +1,4 @@
-package escaperoom;
+package game;
 
 import game.Enigme;
 import game.EnigmeCalcul;
@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class Partie {
 
-    private Enigme enigme;
+    Enigme enigme;
 
     private Random rdm = new Random();
     private int indexEng;

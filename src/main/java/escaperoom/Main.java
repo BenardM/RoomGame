@@ -1,6 +1,6 @@
 package escaperoom;
 
-import game.EnigmeTexte;
+import game.Partie;
 
 import java.util.Scanner;
 

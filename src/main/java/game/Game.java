@@ -11,4 +11,5 @@ public class Game extends PApplet {
         PApplet.main("game.Draw"); // lancement de l'applet (dessin)
     }
 
+
 }
