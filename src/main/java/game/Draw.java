@@ -19,7 +19,7 @@ public class Draw extends PApplet {
         int screen=1;
         String path;
         Controller C1= new Controller();
-
+        Timer chrono;
         @Override
         public void settings() {
             fullScreen();
@@ -34,7 +34,7 @@ public class Draw extends PApplet {
             frameRate(fps); // Affichage par défaut 20 FPS
             C1.dessiner(this);
             chrono = new Timer();
-            fill(0);
+
         }
 
         public void draw(){
@@ -68,5 +68,5 @@ public class Draw extends PApplet {
         textAlign(CENTER);
         text(message,550,690/2);
     }
-    }
+}
 
