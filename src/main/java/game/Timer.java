@@ -5,7 +5,6 @@ package game;
  */
 public class Timer  {
 
-    String DisplayTimer;
 
     /**
      * Created by maximebenard on 01/02/2017.
@@ -66,9 +65,6 @@ public class Timer  {
     void ReInit(){
         TempEcouleDemarrage = millisec();
     }
-
-
-
 }
 
 
