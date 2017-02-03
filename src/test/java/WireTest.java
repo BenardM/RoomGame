@@ -38,12 +38,6 @@ public class WireTest {
     }
 
     @Test
-    public void isPresent() throws Exception {
-        Wire wire = new Wire();
-        assertEquals(wire.isPresent(wire.getColor()), true);
-    }
-
-    @Test
     public void setType() throws Exception {
         Wire wire = new Wire();
         assertEquals(wire.getType(), 1);
