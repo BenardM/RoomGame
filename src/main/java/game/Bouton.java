@@ -57,7 +57,7 @@ public class Bouton {
     void appuyer(Draw d){
         if ((xPos <= d.mouseX && d.mouseX <= xPos + widthB) && (yPos <= d.mouseY && d.mouseY <= yPos + heightB) && d.screen == pantallaActual){
             d.screen = pantallaDesti;
-           /* d.chronometre.ReInitTimer(16);*/
+           d.chrono.ReInitTimer(16);
         }
     }
 }
