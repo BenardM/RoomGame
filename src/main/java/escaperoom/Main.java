@@ -9,9 +9,19 @@ public class Main {
 
     public static void main(String args[]) {
 
-        Partie partie = new Partie();
+        Scanner reader = new Scanner(System.in);
 
-        partie.finDePartie("kcdq");
+        EnigmeTexte enigmeTexte = new EnigmeTexte();
+
+        System.out.println(enigmeTexte.getTexte());
+
+        String rep = reader.next();
+
+        if (enigmeTexte.findReponse().equals(rep)) {
+            System.out.println("WIN ! :*");
+        } else {
+            System.out.println("LOOSE ! X'D");
+        }
 
 
 
