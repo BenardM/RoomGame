@@ -44,7 +44,7 @@ public class EnigmeCalculTest {
     public void resultatIsCorrect() throws Exception {
         EnigmeCalcul enigmeCalcul = new EnigmeCalcul();
         assertEquals(enigmeCalcul.getResultatCalcul(), enigmeCalcul.genererResultatCalcul(enigmeCalcul.getTexteCalcul()));
-        assertNotEquals(enigmeCalcul.getResultatCalcul(), 0);
+        assertTrue(enigmeCalcul.getResultatCalcul() >= -10000 && enigmeCalcul.getResultatCalcul() <= 10000);
     }
 
     @Test

@@ -27,14 +27,15 @@ public class WireTest {
     @Test
     public void hasColor() throws Exception {
         Wire wire = new Wire();
-        assertNotNull(wire.getColor());
+        assertTrue(wire.getColor() >= 0 && wire.getColor() <= 255);
     }
 
     @Test
     public void generateColor() throws Exception {
-        String tabColor[] = {"blanc", "noir", "jaune", "orange", "bleu", "vert", "rouge"};
         Wire wire = new Wire();
-        assertNotNull(wire.getColor());
+        int color = wire.getColor();
+        wire.generateColor();
+        assertTrue(color != wire.getColor());
     }
 
     @Test

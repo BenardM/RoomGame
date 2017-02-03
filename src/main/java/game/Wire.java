@@ -8,10 +8,9 @@ import java.util.Random;
 
 public class Wire {
 
-    float xPos;
-    float yPos;
-    int c;
-    private String color;
+    private float xPos;
+    private float yPos;
+    private int color;
     private int type;
     private boolean isCut;
 
@@ -21,13 +20,10 @@ public class Wire {
         this.setCut(false);
     }
 
-    private void generateColor() {
+    public void generateColor() {
         Random random = new Random();
-        String tabColor[] = {"blanc", "noir", "jaune", "orange", "bleu", "vert", "rouge"};
-        setColor(tabColor[random.nextInt(tabColor.length)]);
+        this.setColor(random.nextInt(256));
     }
-
-
 
     public boolean isPresent(String color) {
         String tabColor[] = {"blanc", "noir", "jaune", "orange", "bleu", "vert", "rouge"};
@@ -50,12 +46,14 @@ public class Wire {
         isCut = cut;
     }
 
-    public String getColor() {
+    public int getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setColor(int color) {
+        if (color >= 0 && color <= 255) {
+            this.color = color;
+        }
     }
 
     public int getType() {
@@ -68,5 +66,21 @@ public class Wire {
         } else {
             this.type = type;
         }
+    }
+
+    public float getxPos() {
+        return xPos;
+    }
+
+    public void setxPos(float xPos) {
+        this.xPos = xPos;
+    }
+
+    public float getyPos() {
+        return yPos;
+    }
+
+    public void setyPos(float yPos) {
+        this.yPos = yPos;
     }
 }

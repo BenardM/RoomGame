@@ -23,11 +23,11 @@ public class EnigmeCalcul implements Enigme {
      * Retourne un calcul avec 2 nombres et un opérateur sous forme de texte
      */
     public String genererTexteCalcul() {
-        char tabOperateurs[] = {'+', '-', '*', '/'};
+        char tabOperateurs[] = {'+', '-', '*'};
         String texteCalcul;
         Random random = new Random();
 
-        texteCalcul = Integer.toString(random.nextInt(100) + 1) + String.valueOf(tabOperateurs[random.nextInt(4)]) + Integer.toString(random.nextInt(100) + 1);
+        texteCalcul = Integer.toString(random.nextInt(100) + 1) + String.valueOf(tabOperateurs[random.nextInt(tabOperateurs.length)]) + Integer.toString(random.nextInt(100) + 1);
 
         return texteCalcul;
     }
@@ -58,9 +58,6 @@ public class EnigmeCalcul implements Enigme {
         switch(operateurExtrait) {
             case '*':
                 resultatCalcul = nombre1 * nombre2;
-                break;
-            case '/':
-                resultatCalcul = nombre1 / nombre2;
                 break;
             case '+':
                 resultatCalcul = nombre1 + nombre2;
@@ -95,7 +92,7 @@ public class EnigmeCalcul implements Enigme {
      * Vérifie si un caractère est présent dans un tableau d'opérateurs
      */
     public boolean isPresent(char caractere) {
-        char tabOperateurs[] = {'+', '-', '*', '/'};
+        char tabOperateurs[] = {'+', '-', '*'};
         boolean present = false;
 
         for (int i = 0; i < tabOperateurs.length; i++) {

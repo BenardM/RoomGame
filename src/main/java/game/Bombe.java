@@ -11,10 +11,10 @@ public class Bombe {
     private Timer timer;
 
     public Bombe() {
-            this.setListeWires(genererWires(4));
-            this.setListeWires(genererOneExplodeWire(this.getListeWires()));
-            this.setListeWires(genererOneLoseTimeWire(this.getListeWires()));
-            this.setTimer(new Timer());
+        this.setListeWires(genererWires(4));
+        this.setListeWires(genererOneExplodeWire(this.getListeWires()));
+        this.setListeWires(genererOneLoseTimeWire(this.getListeWires()));
+        this.setTimer(new Timer());
     }
 
     private ArrayList<Wire> genererWires(int nombreFils) {
@@ -67,8 +67,41 @@ public class Bombe {
         return listeWires;
     }
 
-    public void setListeWires(ArrayList<Wire> listWires) {
-        this.listeWires = listWires;
+    public void setListeWires(ArrayList<Wire> listeWires) {
+        this.listeWires = listeWires;
+    }
+
+    public int[] getPositionExplodeWires() {
+        int position = 0;
+        int[] tabPositionExplodeWires = {};
+        ArrayList<Wire> listeWires = new ArrayList<>();
+
+        for (int i = 0; i < this.getListeWires().size(); i++) {
+            position = i;
+
+            if (listeWires.get(i).getType() == 3 && listeWires.get(i).isCut() == false) {
+                tabPositionExplodeWires[i] = position;
+            }
+            else {
+                tabPositionExplodeWires[i] = -1;
+            }
+        }
+
+        return tabPositionExplodeWires;
+    }
+
+    public int[] getPositionLoseTimeWires() {
+        int position = 0;
+        int[] tabPositionLoseTimeWires = {};
+        ArrayList<Wire> listeWires = new ArrayList<>();
+
+        for (int i = 0; i < this.getListeWires().size(); i++) {
+            if (listeWires.get(i).getType() == 2 && listeWires.get(i).isCut() == false) {
+                tabPositionLoseTimeWires[i] = position;
+            }
+        }
+
+        return tabPositionLoseTimeWires;
     }
 
     public Timer getTimer() {
