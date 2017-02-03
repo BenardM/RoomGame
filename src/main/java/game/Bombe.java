@@ -7,12 +7,14 @@ import java.util.Random;
  * Created by nicolas on 01/02/17.
  */
 public class Bombe {
-    ArrayList<Wire> listeWires = new ArrayList<>();
+    private ArrayList<Wire> listeWires;
+    private Timer timer;
 
     public Bombe() {
             this.setListeWires(genererWires(4));
             this.setListeWires(genererOneExplodeWire(this.getListeWires()));
             this.setListeWires(genererOneLoseTimeWire(this.getListeWires()));
+            this.setTimer(new Timer());
     }
 
     private ArrayList<Wire> genererWires(int nombreFils) {
@@ -69,5 +71,11 @@ public class Bombe {
         this.listeWires = listWires;
     }
 
+    public Timer getTimer() {
+        return timer;
+    }
 
+    public void setTimer(Timer timer) {
+        this.timer = timer;
+    }
 }
