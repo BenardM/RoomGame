@@ -37,15 +37,17 @@ public class BombeTest {
 
         assertTrue(isDone);
     }
-//
-//    @Test
-//    public void genererLoseTimeWire() throws Exception {
-//        Bombe bombe = new Bombe();
-//
-//        for(int i = 0; i < bombe.getListWires().size(); i++) {
-//            if(bombe.getListeWires().get(i).getType() == 2) {
-//                assertEquals(bombe.getListeWires().get(i).getType(), 2);
-//            }
-//        }
-//    }
+
+    @Test
+    public void genererLoseTimeWire() throws Exception {
+        Bombe bombe = new Bombe();
+        boolean isDone = false;
+        for(int i = 0; i < bombe.getListeWires().size(); i++) {
+            if(bombe.getListeWires().get(i).getType() == 2) {
+               isDone = true;
+            }
+        }
+
+        assertTrue(isDone);
+    }
 }

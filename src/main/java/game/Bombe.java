@@ -7,35 +7,68 @@ import java.util.Random;
  * Created by nicolas on 01/02/17.
  */
 public class Bombe {
-    ArrayList<Wire> listWires = new ArrayList<>();
+    ArrayList<Wire> listeWires = new ArrayList<>();
 //    ArrayList<Enigme> listeEnigmes = new ArrayList<>();
 
     public Bombe() {
-            this.genererWires(4);
+            this.setListeWires(genererWires(4));
+            this.setListeWires(genererOneExplodeWire(this.getListeWires()));
+            this.setListeWires(genererOneLoseTimeWire(this.getListeWires()));
     }
 
-    private void genererWires(int nombreFils) {
+    private ArrayList<Wire> genererWires(int nombreFils) {
+        ArrayList<Wire> listeWires = new ArrayList<>();
+
         for(int i = 0; i < nombreFils; i++) {
-            this.listWires.add(new Wire());
+            listeWires.add(new Wire());
         }
 
-        this.genererExplodeWire();
-        //this.genererLoseTimeWire();
+        return listeWires;
     }
 
-    private void genererExplodeWire() {
+    public ArrayList<Wire> genererOneExplodeWire(ArrayList<Wire> listeWires) {
         Random random = new Random();
-        listWires.get(random.nextInt(listWires.size())).setType(3);
+        boolean isDone = false;
+        int position = 0;
+
+        do {
+            position = random.nextInt(listeWires.size());
+
+            if(listeWires.get(position).getType() == 1) {
+                listeWires.get(position).setType(3);
+                isDone = true;
+            }
+        } while(!isDone);
+
+        return listeWires;
     }
 
-//    private void genererLoseTimeWire() {
-//    }
+    private ArrayList<Wire> genererOneLoseTimeWire(ArrayList<Wire> listeWires) {
+        Random random = new Random();
+        boolean isDone = false;
+        int position = 0;
 
-    public ArrayList<Wire> getListWires() {
-        return listWires;
+        do {
+            position = random.nextInt(listeWires.size());
+
+            if(listeWires.get(position).getType() == 1) {
+                listeWires.get(position).setType(2);
+                isDone = true;
+            }
+
+        } while(!isDone);
+
+
+        return listeWires;
     }
 
-    public void setListWires(ArrayList<Wire> listWires) {
-        this.listWires = listWires;
+    public ArrayList<Wire> getListeWires() {
+        return listeWires;
     }
+
+    public void setListeWires(ArrayList<Wire> listWires) {
+        this.listeWires = listWires;
+    }
+
+
 }
