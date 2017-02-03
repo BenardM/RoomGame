@@ -1,6 +1,5 @@
 package game;
 
-import java.util.Collections;
 import java.util.Random;
 import java.util.Arrays;
 /**
@@ -8,7 +7,7 @@ import java.util.Arrays;
  */
 public class EnigmeMemoire implements Enigme {
     private int type = 1;
-    private int liste[] = new int[10];
+    int liste[] = new int[10];
     int reponses[] = new int[10];
     Random rdm = new Random();
 
@@ -40,16 +39,23 @@ public class EnigmeMemoire implements Enigme {
 
 
     @Override
-    public boolean answerIsCorrect(String rep) {
-        
-        for (int i = 0; i < 10; i++) {
+    public boolean answerIsCorrect(String reponse) {
 
-            reponses[i] = Integer.parseInt(rep.split(";")[i]);
-        }
+        //validateReponse(reponse)
+        createReponse(reponse);
 
         Arrays.sort(reponses);
 
         return Arrays.equals(liste,reponses);
+    }
+
+    private void createReponse(String reponse) {
+        for (int i = 0; i < 10; i++) {
+
+            String s = reponse.split(";")[i];
+            System.out.println("s="+s);
+            reponses[i] = Integer.parseInt(s);
+        }
     }
 
     public void selectTen(){
@@ -69,5 +75,14 @@ public class EnigmeMemoire implements Enigme {
 
     public int[] getReponses() {
         return reponses;
+    }
+
+    public boolean validateReponse(String reponse) {
+        String[] slices = reponse.split(";");
+
+        boolean lengthValid = slices.length == 10;
+        boolean contentValid = true;// f(slices):
+        return lengthValid && contentValid;
+
     }
 }
