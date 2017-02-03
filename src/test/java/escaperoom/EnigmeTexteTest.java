@@ -24,7 +24,7 @@ public class EnigmeTexteTest {
 
         EnigmeTexte enigmeTexte = new EnigmeTexte();
 
-        assertEquals(enigmeTexte.findReponse(), enigmeTexte.getReponse());
+        assertEquals("kcdq", enigmeTexte.getReponse());
     }
 
     @Test

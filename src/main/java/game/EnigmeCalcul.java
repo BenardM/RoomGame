@@ -5,13 +5,13 @@ import java.util.Random;
 /**
  * Created by nicolas on 31/01/17.
  */
-public class EnigmeCalcul {
+public class EnigmeCalcul implements Enigme {
 
     private boolean isValidate;
     private int resultatCalcul; // Résultat du calcul
     private String texteCalcul; // Calcul sous forme de String
 
-    public EnigmeCalcul (String name) {
+    public EnigmeCalcul () {
 
         this.setValidate(false);
         this.texteCalcul = this.genererTexteCalcul();
@@ -82,31 +82,13 @@ public class EnigmeCalcul {
      * Passe la propriété privée validate de l'énigme à true
      */
     public boolean answerIsCorrect(String answer) {
-        boolean isCorrect = false;
 
         if (answer.equals(String.valueOf(this.getResultatCalcul()))) {
-            isCorrect = true;
             this.setValidate(true);
         }
 
-        return isCorrect;
+        return this.getIsValidate();
     }
-    public int getResultatCalcul() {
-        return resultatCalcul;
-    }
-
-    public void setResultatCalcul(int resultatCalcul) {
-        this.resultatCalcul = resultatCalcul;
-    }
-
-    public String getTexteCalcul() {
-        return texteCalcul;
-    }
-
-    public void setTexteCalcul(String texteCalcul) {
-        this.texteCalcul = texteCalcul;
-    }
-
     /**
      * @param caractere
      * @return present
@@ -123,6 +105,22 @@ public class EnigmeCalcul {
         }
 
         return present;
+    }
+
+    public int getResultatCalcul() {
+        return resultatCalcul;
+    }
+
+    public void setResultatCalcul(int resultatCalcul) {
+        this.resultatCalcul = resultatCalcul;
+    }
+
+    public String getTexteCalcul() {
+        return texteCalcul;
+    }
+
+    public void setTexteCalcul(String texteCalcul) {
+        this.texteCalcul = texteCalcul;
     }
 
     public boolean getIsValidate() {

@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * Created by Ad on 01/02/2017.
  */
-public class EnigmeMemoire {
+public class EnigmeMemoire implements Enigme {
     private int type = 1;
     private int liste[] = new int[10];
 
@@ -32,5 +32,8 @@ public class EnigmeMemoire {
     }
 
 
-
+    @Override
+    public boolean answerIsCorrect(String rep) {
+        return false;
+    }
 }

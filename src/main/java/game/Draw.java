@@ -19,15 +19,6 @@ public class Draw extends PApplet {
         int screen=1;
         String path;
         Controller C1= new Controller();
-        float xPos;
-        float yPos;
-        int c;
-        float widthB;
-        float heightB;
-        int pantallaActual;
-        int pantallaDesti;
-        PFont fontBouton;
-        String texte;
 
         @Override
         public void settings() {
@@ -38,10 +29,21 @@ public class Draw extends PApplet {
             path = gameImageController();
             matrice = loadImage(path);
 
+
             image(matrice, 0, 0);
             frameRate(fps); // Affichage par défaut 20 FPS
             C1.dessiner(this);
-            /*wire();*/
+            chrono = new Timer();
+            fill(0);
+        }
+
+        public void draw(){
+            background(255,0);
+            image(matrice, 0, 0);
+            fill(255, 0, 0);
+            PFont foncrono = createFont("Arial", 30);
+            textFont(foncrono);
+            text(chrono.minuteTimer()+":"+chrono.secondsTimer(), 175, 180);
         }
 
         public String gameImageController() {
@@ -66,15 +68,5 @@ public class Draw extends PApplet {
         textAlign(CENTER);
         text(message,550,690/2);
     }
-
-    void wire(){
-        noStroke();
-        fill(c, 255);
-        rect(xPos, yPos, widthB, heightB, 5);
-        fill(255);
-        text (texte, xPos + 10, yPos + 20);
-
-    }
-
     }
 

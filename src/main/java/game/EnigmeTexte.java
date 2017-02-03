@@ -3,7 +3,7 @@ package game;
 /**
  * Created by Victor on 01/02/2017.
  */
-public class EnigmeTexte {
+public class EnigmeTexte implements Enigme {
 
 
     private String texte;
@@ -34,5 +34,17 @@ public class EnigmeTexte {
 
     public String getReponse() {
         return reponse;
+    }
+
+    public boolean answerIsCorrect(String rep) {
+
+        if (getReponse().equals(rep)) {
+
+            return true;
+
+        } else {
+
+            return false;
+        }
     }
 }
