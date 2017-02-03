@@ -63,7 +63,7 @@ public class Wire {
     }
 
     public void setType(int type) {
-        if (type != 1 || type != 2 || type != 3) {
+        if (type < 1 || type > 3) {
             this.type = 1;
         } else {
             this.type = type;
