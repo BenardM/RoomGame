@@ -26,7 +26,7 @@ public class Draw extends PApplet {
         }
         @Override
         public void setup() {
-            path = gameImageController();
+            path = gameImageController(1);
             matrice = loadImage(path);
 
 
@@ -56,8 +56,9 @@ public class Draw extends PApplet {
 
         }
 
-        public String gameImageController() {
-            switch(screen){
+        public String gameImageController(int screenn) {
+            screenn = screen;
+            switch(screenn){
                 case 1: path = "./img/bomba.jpg"; break;
                 case 2: path = "./img/bum.jpg";break;
                 case 3: path = "./img/victory.jpg";break;

@@ -65,14 +65,15 @@ public class Partie {
 
     }
 
-    public void finDePartie(String rep) {
+    public boolean finDePartie(String rep) {
 
         if (enigme.answerIsCorrect(rep)) {
 
             System.out.println("You WIN ! :D (serpentins, cotillons, toussa toussa)");
-
+                return true;
         } else {
             System.out.println("You LOOSE ! You DIED ! Try again ! X'D");
+            return false;
         }
 
     }

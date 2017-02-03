@@ -83,8 +83,7 @@ public class question extends PApplet{
             textSize(25);
             fill(0, 100, 159, 151);
             text(art2B,260,310);
-            String resp = art2B;
-            p.finDePartie(resp);
+
         }
 
         public void keyPressed() {
@@ -94,6 +93,17 @@ public class question extends PApplet{
                 }
             } else if (keyCode != SHIFT && keyCode != CONTROL && keyCode != ALT) {
                 current = current + key;
+            }else  {
+                String resp = art2B;
+                if (p.finDePartie(resp)==true){
+                    Draw d = new Draw();
+                    d.gameImageController(3);
+                }else  {
+                    Draw d = new Draw();
+                    d.gameImageController(2);
+                }
+
+
             }
         }
     }
