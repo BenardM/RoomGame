@@ -8,7 +8,6 @@ import java.util.Random;
  */
 public class Bombe {
     ArrayList<Wire> listeWires = new ArrayList<>();
-//    ArrayList<Enigme> listeEnigmes = new ArrayList<>();
 
     public Bombe() {
             this.setListeWires(genererWires(4));
@@ -26,7 +25,7 @@ public class Bombe {
         return listeWires;
     }
 
-    public ArrayList<Wire> genererOneExplodeWire(ArrayList<Wire> listeWires) {
+    private ArrayList<Wire> genererOneExplodeWire(ArrayList<Wire> listeWires) {
         Random random = new Random();
         boolean isDone = false;
         int position = 0;
