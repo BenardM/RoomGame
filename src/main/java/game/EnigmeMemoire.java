@@ -41,7 +41,7 @@ public class EnigmeMemoire implements Enigme {
     @Override
     public boolean answerIsCorrect(String reponse) {
 
-        //validateReponse(reponse)
+        validateReponse(reponse);
         createReponse(reponse);
 
         Arrays.sort(reponses);

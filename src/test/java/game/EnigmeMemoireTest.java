@@ -28,9 +28,12 @@ public class EnigmeMemoireTest {
 
         EnigmeMemoire enigmeMemoire = new EnigmeMemoire();
         String var = "";
+        for (int i = 0; i< 10; i++) {
 
-        enigmeMemoire.liste[0]=1;
-        assertTrue(enigmeMemoire.answerIsCorrect("1;"));
+            enigmeMemoire.liste[i] = i;
+
+        }
+        assertTrue(enigmeMemoire.answerIsCorrect("0;1;2;3;4;5;6;7;8;9"));
 
     }
      @Test
