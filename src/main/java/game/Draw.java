@@ -1,6 +1,7 @@
 package game;
 
 import processing.core.PApplet;
+import processing.core.PFont;
 import processing.core.PImage;
 
 /**
@@ -18,6 +19,15 @@ public class Draw extends PApplet {
         int screen=1;
         String path;
         Controller C1= new Controller();
+        float xPos;
+        float yPos;
+        int c;
+        float widthB;
+        float heightB;
+        int pantallaActual;
+        int pantallaDesti;
+        PFont fontBouton;
+        String texte;
 
         @Override
         public void settings() {
@@ -28,10 +38,10 @@ public class Draw extends PApplet {
             path = gameImageController();
             matrice = loadImage(path);
 
-
             image(matrice, 0, 0);
             frameRate(fps); // Affichage par défaut 20 FPS
             C1.dessiner(this);
+            /*wire();*/
         }
 
         public String gameImageController() {
@@ -56,5 +66,15 @@ public class Draw extends PApplet {
         textAlign(CENTER);
         text(message,550,690/2);
     }
+
+    void wire(){
+        noStroke();
+        fill(c, 255);
+        rect(xPos, yPos, widthB, heightB, 5);
+        fill(255);
+        text (texte, xPos + 10, yPos + 20);
+
+    }
+
     }
 
