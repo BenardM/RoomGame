@@ -1,9 +1,5 @@
 package game;
 
-import java.util.Scanner;
-
-import static javafx.scene.paint.Color.color;
-
 /**
  * Created by Ad on 01/02/2017.
  */
