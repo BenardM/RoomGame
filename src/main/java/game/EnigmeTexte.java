@@ -20,6 +20,10 @@ public class EnigmeTexte implements Enigme {
         return texte;
     }
 
+    public String getEnigme() {
+        return texte;
+    }
+
     public String findReponse() {
 
         this.reponse = "";

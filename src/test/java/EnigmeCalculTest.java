@@ -56,7 +56,7 @@ public class EnigmeCalculTest {
 
     @Test
     public void answerIsWrong() throws Exception {
-        EnigmeCalcul enigmeCalcul = new EnigmeCalcul("Enigme 1");
+        EnigmeCalcul enigmeCalcul = new EnigmeCalcul();
 
         // +1 pour le getResultatCalcul afin d'avoir une mauvaise réponse
         String answer = String.valueOf(enigmeCalcul.getResultatCalcul()+1);

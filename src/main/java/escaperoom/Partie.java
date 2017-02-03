@@ -47,41 +47,32 @@ public class Partie {
 
     }
 
+    public void afficherEnigme() {
+
+        switch(indexEng) {
+
+            case 0:
+                System.out.println(enigme.getEnigme());
+                break;
+            case 1:
+                System.out.println(enigme.getEnigme());
+                break;
+            case 2:
+                System.out.println(enigme.getEnigme());
+                System.out.println("Veuillez saisir de la façon suivante :\nchiffre;chiffre;chiffre;...");
+                break;
+        }
+
+    }
 
     public void finDePartie(String rep) {
 
-        switch (indexEng) {
+        if (enigme.answerIsCorrect(rep)) {
 
-            case 0:
+            System.out.println("You WIN ! :D (serpentins, cotillons, toussa toussa)");
 
-                if (enigme.answerIsCorrect(rep)) {
-
-                    System.out.println("You WIN ! :D (serpentins, cotillons, toussa toussa)");
-
-                } else {
-                    System.out.println("You LOOSE ! You DIED ! Try again ! X'D");
-                }
-                break;
-            case 1:
-
-                if (enigme.answerIsCorrect(rep)) {
-
-                    System.out.println("You WIN ! :D (serpentins, cotillons, toussa toussa)");
-
-                } else {
-                    System.out.println("You LOOSE ! You DIED ! Try again ! X'D");
-                }
-                break;
-            case 2:
-
-                if (enigme.answerIsCorrect(rep)) {
-
-                    System.out.println("You WIN ! :D (serpentins, cotillons, toussa toussa)");
-
-                } else {
-                    System.out.println("You LOOSE ! You DIED ! Try again ! X'D");
-                }
-                break;
+        } else {
+            System.out.println("You LOOSE ! You DIED ! Try again ! X'D");
         }
 
     }

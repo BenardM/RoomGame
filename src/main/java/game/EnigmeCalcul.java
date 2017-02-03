@@ -111,6 +111,10 @@ public class EnigmeCalcul implements Enigme {
         return resultatCalcul;
     }
 
+    public String getEnigme() {
+        return texteCalcul;
+    }
+
     public void setResultatCalcul(int resultatCalcul) {
         this.resultatCalcul = resultatCalcul;
     }

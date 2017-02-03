@@ -5,4 +5,6 @@ package game;
  */
 public interface Enigme {
     public boolean answerIsCorrect(String rep);
+
+    public String getEnigme();
 }

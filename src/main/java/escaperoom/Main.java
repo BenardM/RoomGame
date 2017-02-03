@@ -1,5 +1,7 @@
 package escaperoom;
 
+import game.EnigmeTexte;
+
 import java.util.Scanner;
 
 /**
@@ -10,19 +12,14 @@ public class Main {
     public static void main(String args[]) {
 
         Scanner reader = new Scanner(System.in);
+        Partie partie = new Partie();
+        String reponse;
 
-        EnigmeTexte enigmeTexte = new EnigmeTexte();
+        partie.afficherEnigme();
 
-        System.out.println(enigmeTexte.getTexte());
+        reponse = reader.next();
 
-        String rep = reader.next();
-
-        if (enigmeTexte.findReponse().equals(rep)) {
-            System.out.println("WIN ! :*");
-        } else {
-            System.out.println("LOOSE ! X'D");
-        }
-
+        partie.finDePartie(reponse);
 
 
     }

@@ -1,30 +1,37 @@
 package game;
 
+import java.util.Collections;
 import java.util.Random;
-
+import java.util.Arrays;
 /**
  * Created by Ad on 01/02/2017.
  */
 public class EnigmeMemoire implements Enigme {
     private int type = 1;
     private int liste[] = new int[10];
+    int reponses[] = new int[10];
+    Random rdm = new Random();
 
     public EnigmeMemoire() {
         this.type = type;
-        this.liste = fillliste();
+        selectTen();
     }
 
-    public int[] fillliste() {
-
-        for (int i = 0 ; i < 10; i++ ) {
-            Random random = new Random();
-            liste[i] = random.nextInt(101);
-        }
-        return liste;
-    }
 
     public int[] getListe() {
         return liste;
+    }
+
+    public String getEnigme() {
+
+        String reponse = "";
+
+        for (int i = 0; i < 10; i++) {
+
+            reponse += liste[i] + " ";
+
+        }
+        return reponse;
     }
 
     public void init() {
@@ -34,6 +41,33 @@ public class EnigmeMemoire implements Enigme {
 
     @Override
     public boolean answerIsCorrect(String rep) {
-        return false;
+        
+        for (int i = 0; i < 10; i++) {
+
+            reponses[i] = Integer.parseInt(rep.split(";")[i]);
+        }
+
+        Arrays.sort(reponses);
+
+        return Arrays.equals(liste,reponses);
+    }
+
+    public void selectTen(){
+        for(int i=0;i<10;i++){
+            liste[i]=rdm.nextInt(101);
+            if(i>0){
+                for(int j=i-1;j>=0;j--){
+                    if(liste[i]==liste[j]){
+                        liste[i]=rdm.nextInt(101);
+                    }
+                }
+            }
+        }
+        Arrays.sort(liste);
+    }
+
+
+    public int[] getReponses() {
+        return reponses;
     }
 }

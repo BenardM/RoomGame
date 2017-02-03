@@ -1,3 +1,4 @@
+import game.Enigme;
 import game.EnigmeMemoire;
 import org.junit.Test;
 
@@ -19,5 +20,20 @@ public class EnigmeMemoireTest {
         assertEquals(10, enigmeMemoire.getListe().length);
     }
 
+    @Test
+    public void repIsValide() throws Exception {
 
+
+        EnigmeMemoire enigmeMemoire = new EnigmeMemoire();
+        String var = "";
+
+        for (int i = 0; i < 10;i++) {
+            var = Integer.toString(enigmeMemoire.getListe()[i]);
+        }
+
+        enigmeMemoire.answerIsCorrect(var);
+
+        assertTrue(enigmeMemoire.answerIsCorrect(var));
+
+    }
 }
